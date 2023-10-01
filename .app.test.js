@@ -1,4 +1,4 @@
-import { isLeapYear, isLeapYearwithCondition } from "./app";
+import { isLeapYear, isLeapYearWithCondition } from "./app";
 
 
 describe('Year is a leap year', () => {
@@ -31,26 +31,34 @@ test.each([1820,1960,2020])(' Year, %i, is divisible by 4 but not by 100', (a) =
 
 //oppgave 2
 test('Throws error object', () => {
-    expect(isLeapYearwithCondition(-2020)).toThrow();
+    expect(isLeapYearWithCondition(-2020)).toThrow();
 });
 
 //oppgave 3
 test('Year is null or undefined', () => {
-    expect(isLeapYearwithCondition("3ew")).toThrow();
+    const yearNull = null;
+    const yearUndefined = undefined;
+    expect(isLeapYearWithCondition(yearNull)).toThrow(Error);
+    expect(isLeapYearWithCondition(yearUndefined)).toThrow();
+
 });
 
 
 //oppgave 4
 
-describe('A year is not spoorted', () => {
+describe('A year is not supported', () => {
 
     test('Throws error object', () => {
-        expect(isLeapYearwithCondition(-2020)).toThrow();
+        expect(isLeapYearWithCondition(-2020)).toThrow();
     });
 
 
     test('Year is null or undefined', () => {
-        expect(isLeapYearwithCondition("3ew")).toThrow();
+        const yearNull = null;
+        const yearUndefined = undefined;
+        expect(isLeapYearWithCondition(yearNull)).toThrow();
+        expect(isLeapYearWithCondition(yearUndefined)).toThrow();
+    
     });
     
 });
